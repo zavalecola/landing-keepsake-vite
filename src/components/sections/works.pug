@@ -1,0 +1,10 @@
+include ../../data/works.pug
+
+section#works.works
+  .container
+    .works__head
+      h2.works__title Наші роботи
+      p.works__subtitle Вибрані проєкти з брендингу та поліграфії
+    .works__grid
+      each item in works
+        +work-card(item)
