@@ -1,0 +1,9 @@
+mixin icon(name)
+  svg.icon(class=`icon--${name}`)
+    case name
+      when 'arrow'
+        use(href='/src/assets/sprites.svg#arrow')
+      when 'close'
+        use(href='/src/assets/sprites.svg#close')
+      default
+        use(href='/src/assets/sprites.svg#star')

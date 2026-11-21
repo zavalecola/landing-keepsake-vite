@@ -1,21 +1,37 @@
+//- Підключаємо всі міксини глобально для всього проєкту
+include ../mixins/btn.pug
+include ../mixins/icon.pug
+include ../mixins/picture.pug
+include ../mixins/work-card.pug
+
 doctype html
-html(lang="en")
-    head
-        block meta
-            meta(charset="utf-8")
-            meta(name="viewport" content="width=device-width, initial-scale=1")
-        block title
-            title Vite Pug Template
-        block fonts
-        block main-scripts
-        block styles
-            link(rel="stylesheet" href="/src/styles/main.scss")
-    body
-        block data
-        block header
-            header.page-header header
-        block content
-            main.page-main content
-        block footer
-            footer.page-footer footer
-        block add-scripts
+html(lang='uk')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+
+    //- Блок для мета-тегів, який можна розширювати через append
+    block meta
+      title Keepsake — Лендинг
+      meta(name='description', content='Професійний лендинг Keepsake')
+
+    //- Підключення стилів
+    block styles
+      link(rel='stylesheet', href='/src/styles/main.scss')
+
+  body
+    //- Шапка сайту
+    block header
+      include ../components/header.pug
+
+    //- Основний вміст сторінки
+    main
+      block content
+
+    //- Футер сайту
+    block footer
+      include ../components/footer.pug
+
+    //- Блок для скриптів
+    block scripts
+      script(type='module', src='/src/pages/index.js')

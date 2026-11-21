@@ -1,0 +1,13 @@
+mixin work-card(work)
+  article.work-card
+    +picture(
+      work.image,
+      work.alt,
+      'work-card__img',
+      work.width || 800,
+      work.height || 632,
+      true,
+    )
+    .work-card__content
+      h3.work-card__title= work.title
+      span.work-card__category= work.category

@@ -1,0 +1,21 @@
+mixin picture(name, alt, className = '', width = 800, height = 632, isLazy = true, sizes = '(min-width: 1280px) 357px, (min-width: 768px) 50vw, 100vw')
+  picture
+    source(
+      type='image/avif',
+      srcset=`/assets/${name}-400.avif 400w, /assets/${name}-800.avif 800w`,
+      sizes=sizes
+    )
+    source(
+      type='image/webp',
+      srcset=`/assets/${name}-400.webp 400w, /assets/${name}-800.webp 800w`,
+      sizes=sizes
+    )
+    img(
+      class=className,
+      src=`/assets/${name}-800.jpg`,
+      alt=alt,
+      width=width,
+      height=height,
+      loading=isLazy ? 'lazy' : null,
+      decoding='async'
+    )
