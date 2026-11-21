@@ -1,9 +1,20 @@
-mixin btn(text, href)
+mixin btn(label, href = null, variant = 'primary')
+  -
+    let modClass = "btn--primary";
+    switch (variant) {
+      case "secondary":
+        modClass = "btn--secondary";
+        break;
+      default:
+        modClass = "btn--primary";
+    }
   if href
-    a.btn(href=href)&attributes(attributes)
-      block
-      | #{ text }
+    a.btn(href=href, class=modClass)&attributes(attributes)
+      if block
+        block
+      span= label
   else
-    button.btn(type='button')&attributes(attributes)
-      block
-      | #{ text }
+    button.btn(type='button', class=modClass)&attributes(attributes)
+      if block
+        block
+      span= label

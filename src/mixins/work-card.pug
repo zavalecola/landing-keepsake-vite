@@ -1,4 +1,4 @@
-mixin work-card(work)
+mixin work-card(work, index = 0)
   article.work-card
     +picture(
       work.image,
@@ -6,8 +6,9 @@ mixin work-card(work)
       'work-card__img',
       work.width || 800,
       work.height || 632,
-      true,
+      index > 0,
     )
     .work-card__content
       h3.work-card__title= work.title
-      span.work-card__category= work.category
+      unless !work.category
+        span.work-card__category= work.category
