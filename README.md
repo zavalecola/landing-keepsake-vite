@@ -1,6 +1,6 @@
 # Keepsake — Landing Page
 
-Live Demo [https://udalovivanw.github.io/landing-keepsake-vite/](https://udalovivanw.github.io/landing-keepsake-vite/)
+Live Demo [https://zavalecola.github.io/landing-keepsake-vite/](https://zavalecola.github.io/landing-keepsake-vite/)
 ---
 
 ## Вимоги до середовища та команди запуску
