@@ -1,37 +1,26 @@
-﻿mixin picture(name, alt, className = '', width = 800, height = 632, isLazy = true, sizes = '(min-width: 1280px) 357px, (min-width: 768px) 50vw, 100vw', isHero = false)
-  - const basePath = 'assets/images'
+mixin picture(name, alt, width, height, sizes, className = '', isFirst = false)
+  - var loadingMode = false;
+  unless isFirst
+    - loadingMode = 'lazy';
+
   picture
     source(
       type='image/avif',
-      srcset=`${basePath}/${name}-400.avif 400w, ${basePath}/${name}-800.avif 800w`,
+      srcset=`/src/assets/images/${name}-400.avif 400w, /src/assets/images/${name}-800.avif 800w`,
       sizes=sizes
     )
     source(
       type='image/webp',
-      srcset=`${basePath}/${name}-400.webp 400w, ${basePath}/${name}-800.webp 800w`,
+      srcset=`/src/assets/images/${name}-400.webp 400w, /src/assets/images/${name}-800.webp 800w`,
       sizes=sizes
     )
-    if isHero
-      img(
-        class=className,
-        src=`${basePath}/${name}-800.jpg`,
-        srcset=`${basePath}/${name}-400.jpg 400w, ${basePath}/${name}-800.jpg 800w`,
-        sizes=sizes,
-        alt=alt,
-        width=width,
-        height=height,
-        fetchpriority='high',
-        decoding='async'
-      )&attributes(attributes)
-    else
-      img(
-        class=className,
-        src=`${basePath}/${name}-800.jpg`,
-        srcset=`${basePath}/${name}-400.jpg 400w, ${basePath}/${name}-800.jpg 800w`,
-        sizes=sizes,
-        alt=alt,
-        width=width,
-        height=height,
-        loading=isLazy ? 'lazy' : null,
-        decoding='async'
-      )&attributes(attributes)
+    img(
+      class=className,
+      src=`/src/assets/images/${name}-800.jpg`,
+      alt=alt,
+      width=width,
+      height=height,
+      loading=loadingMode,
+      decoding='async',
+      fetchpriority=isFirst ? 'high' : false
+    )

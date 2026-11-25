@@ -1,0 +1,21 @@
+include ../../data/stats
+
+section.clients.section
+  .container
+    +section-header('Clients & kind words', 'Some of the teams that trusted us with their brands.')
+    ul.clients__logos
+      each client in clients
+        li.clients__logo(class=`clients__logo--${client.slug}`) #{ client.name }
+
+    blockquote.testimonial
+      span.testimonial__quote(aria-hidden='true') “
+      p.testimonial__text #{ testimonial.text }
+      footer.testimonial__author
+        .testimonial__info
+          .testimonial__avatar(aria-hidden='true') #{ testimonial.initials }
+          .testimonial__details
+            p.testimonial__name #{ testimonial.author }
+            p.testimonial__role #{ testimonial.role }
+        .testimonial__dots(aria-hidden='true')
+          each _, i in [0, 1, 2]
+            span.testimonial__dot(class={ 'testimonial__dot--active': i === 0 })

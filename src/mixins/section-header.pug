@@ -1,0 +1,4 @@
+mixin section-header(title, desc = '', titleClass = '')
+  h2.section-title(class=titleClass) #{ title }
+  if desc
+    p.section-desc #{ desc }

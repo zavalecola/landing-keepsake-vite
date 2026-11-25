@@ -1,0 +1,25 @@
+include ../../data/works
+
+section#works.works.section
+  .container
+    each cat, i in workCategories
+      input.filter-radio(
+        id=`filter-${cat.id}`,
+        class=`filter-radio--${cat.id}`,
+        type='radio',
+        name='portfolio-filter',
+        checked=i === 0
+      )
+
+    .works__head
+      +section-header('Our awesome works')
+      .works__chips
+        each cat in workCategories
+          label.chip(for=`filter-${cat.id}`) #{ cat.label }
+
+    .works__grid
+      each work, i in works
+        +work-card(work, i === 0)
+
+    .works__more
+      +btn('Load more works', null, 'secondary').works__more-btn

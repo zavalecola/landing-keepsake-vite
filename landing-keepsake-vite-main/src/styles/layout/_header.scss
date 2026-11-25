@@ -1,0 +1,249 @@
+@use '../abstracts' as *;
+
+.header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 100;
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-border);
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+
+  &__mark {
+    @include flex-center;
+
+    width: rem(34);
+    height: rem(34);
+    border-radius: 50%;
+    background-color: var(--color-text-dark);
+    color: var(--color-white);
+    font-family: var(--font-dancing-script);
+    font-weight: 700;
+    font-size: rem(22);
+    line-height: 1;
+
+    @include mq('md') {
+      width: rem(40);
+      height: rem(40);
+      font-size: rem(26);
+    }
+  }
+
+  &__text {
+    font-family: var(--font-dancing-script);
+    font-weight: 700;
+    font-size: rem(22);
+    line-height: 1;
+    color: var(--color-text-dark);
+
+    @include mq('md') {
+      font-size: rem(26);
+    }
+  }
+}
+
+.burger-btn {
+  @include flex-center;
+
+  width: rem(40);
+  height: rem(40);
+  cursor: pointer;
+  color: var(--color-text-dark);
+
+  .icon--close {
+    display: none;
+  }
+
+  @include mq('md') {
+    display: none;
+  }
+}
+
+.nav {
+  display: none;
+  position: absolute;
+  top: var(--header-height);
+  left: 0;
+  width: 100%;
+  padding: rem(20);
+  background-color: var(--color-white);
+  box-shadow: 0 4px 10px rgb(0 0 0 / 10%);
+  z-index: 100;
+
+  @include mq('md') {
+    display: flex;
+    position: static;
+    align-items: center;
+    gap: rem(24);
+    width: auto;
+    padding: 0;
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  @include mq('lg') {
+    gap: rem(40);
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+
+    @include mq('md') {
+      flex-direction: row;
+      gap: rem(24);
+    }
+
+    @include mq('lg') {
+      gap: rem(40);
+    }
+  }
+
+  &__item {
+    border-bottom: 1px solid var(--color-border);
+
+    @include mq('md') {
+      border-bottom: none;
+    }
+  }
+
+  &__link {
+    display: block;
+    padding: rem(16) 0;
+    font-family: var(--font-oswald);
+    font-weight: 300;
+    font-size: rem(24);
+    line-height: 1.25;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-text-dark);
+
+    &:hover,
+    &--active {
+      color: var(--color-accent);
+    }
+
+    @include mq('md') {
+      padding: 0;
+      font-weight: 400;
+      font-size: rem(13);
+      line-height: rem(19);
+      letter-spacing: 1px;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    flex-direction: column;
+    gap: rem(12);
+
+    @include mq('md') {
+      flex-direction: row;
+    }
+  }
+
+  &__mobile-btn {
+    width: 100%;
+
+    @include mq('md') {
+      display: none;
+    }
+  }
+
+  &__fav-btn {
+    @include flex-center($gap: rem(8));
+
+    width: 100%;
+    height: rem(40);
+    border: 1px solid var(--color-border);
+    background-color: var(--color-white);
+    color: var(--color-text-dark);
+    font-family: var(--font-oswald);
+    font-weight: 400;
+    font-size: var(--fs-ui);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+
+    @include mq('md') {
+      width: rem(36);
+      height: rem(36);
+      padding: 0;
+      border: none;
+      background-color: var(--color-accent);
+      color: var(--color-white);
+
+      &:hover {
+        background-color: var(--color-accent-hover);
+      }
+    }
+  }
+
+  &__fav-text {
+    @include mq('md') {
+      display: none;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: rem(8);
+    padding: rem(20);
+    margin-top: rem(60);
+    background-color: var(--color-bg-light);
+
+    @include mq('md') {
+      display: none;
+    }
+  }
+
+  &__info-label {
+    font-family: var(--font-oswald);
+    font-size: rem(12);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+
+  &__info-text {
+    color: var(--color-text-dark);
+  }
+
+  &__socials {
+    display: none;
+  }
+}
+
+.menu-toggle {
+  @include visually-hidden;
+
+  &:checked + .burger-btn {
+    .icon--burger {
+      display: none;
+    }
+
+    .icon--close {
+      display: block;
+    }
+  }
+
+  &:checked ~ .nav {
+    display: block;
+
+    @include mq('md') {
+      display: flex;
+    }
+  }
+}

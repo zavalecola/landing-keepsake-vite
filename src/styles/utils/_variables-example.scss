@@ -1,6 +1,0 @@
-@use 'sass:color';
-
-$primary-color: #369;
-$primary-dark: color.adjust($primary-color, $lightness: -10%);
-$primary-light: color.adjust($primary-color, $lightness: 10%);
-$primary-alpha: color.adjust($primary-color, $alpha: -0.5);

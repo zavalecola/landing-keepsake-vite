@@ -1,0 +1,31 @@
+@use 'sass:map';
+@use '../abstracts' as *;
+
+:root {
+  @each $name, $value in $colors {
+    --color-#{$name}: #{$value};
+  }
+
+  --font-oswald: #{map.get($fonts, 'oswald')};
+  --font-open-sans: #{map.get($fonts, 'open-sans')};
+  --font-dancing-script: #{map.get($fonts, 'dancing-script')};
+  --font-lora: #{map.get($fonts, 'lora')};
+  --header-height: #{rem(64)};
+  --section-padding: #{rem(56)};
+  --container-padding: #{rem(20)};
+  --container-max-width: #{rem(1100)};
+  --fs-ui: #{rem(12)};
+
+  @include mq('md') {
+    --header-height: #{rem(84)};
+    --section-padding: #{rem(72)};
+    --container-padding: #{rem(40)};
+    --fs-ui: #{rem(13)};
+  }
+
+  @include mq('lg') {
+    --header-height: #{rem(100)};
+    --section-padding: #{rem(90)};
+    --container-padding: #{rem(90)};
+  }
+}

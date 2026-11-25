@@ -1,0 +1,37 @@
+@use '../abstracts' as *;
+
+.icon {
+  display: inline-block;
+  flex-shrink: 0;
+  fill: none;
+  stroke: currentcolor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+  &--plus,
+  &--mail {
+    width: rem(16);
+    height: rem(16);
+  }
+
+  &--heart,
+  &--arrow-up {
+    width: rem(20);
+    height: rem(20);
+  }
+
+  &--burger,
+  &--close {
+    width: rem(22);
+    height: rem(22);
+  }
+
+  &--web,
+  &--motion,
+  &--print,
+  &--illustration {
+    width: rem(28);
+    height: rem(28);
+  }
+}

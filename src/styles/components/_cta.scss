@@ -1,0 +1,49 @@
+@use '../abstracts' as *;
+
+.cta {
+  min-height: rem(176);
+
+  @include mq('md') {
+    min-height: rem(164);
+  }
+
+  @include mq('lg') {
+    min-height: rem(186);
+    padding: rem(90) rem(90) 0;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  &__title {
+    width: 100%;
+    min-height: rem(60);
+    font-family: var(--font-oswald);
+    font-weight: 300;
+    font-size: rem(22);
+    line-height: rem(30);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--color-text-dark);
+
+    @include mq('md') {
+      font-size: rem(24);
+      line-height: rem(32);
+    }
+
+    @include mq('lg') {
+      font-size: rem(28);
+      line-height: 1.29;
+      letter-spacing: 0.11em;
+    }
+  }
+
+  &__btn {
+    width: rem(131);
+    height: rem(40);
+  }
+}

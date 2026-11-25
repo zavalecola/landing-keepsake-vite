@@ -1,14 +1,29 @@
 extends ../layouts/main
 
 block append meta
-  //- Приклад використання prepend/append для додавання Open Graph тегів
-  meta(property='og:title', content='Keepsake Landing')
+  meta(
+    name='description',
+    content='Keepsake — digital & branding agency based in London. Web design, motion video, print and brand identity.'
+  )
+  meta(property='og:title', content='Keepsake | Digital & Branding Agency')
   meta(property='og:type', content='website')
 
+block prepend styles
+  meta(name='theme-color', content='#2d3136')
+
 block content
-  //- Підключення секцій лендингу через include
-  include ../components/sections/hero
-  include ../components/sections/works
-  include ../components/sections/services
-  include ../components/sections/about
-  include ../components/sections/contact
+  include ../components/header
+
+  main
+    include ../components/sections/hero
+    include ../components/sections/works
+    include ../components/sections/cta
+    include ../components/sections/services
+    include ../components/sections/stats
+    include ../components/sections/clients
+    include ../components/sections/journal
+
+  include ../components/footer
+
+  a.to-top-btn(href='#top', aria-label='Back to top')
+    +icon('arrow-up')

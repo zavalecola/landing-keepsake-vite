@@ -1,0 +1,108 @@
+@use '../abstracts' as *;
+
+.journal {
+  &__title-box {
+    @include mq('lg') {
+      width: rem(182);
+      height: rem(27);
+    }
+  }
+
+  &__grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: rem(40);
+    width: 100%;
+    min-height: rem(750);
+    margin-top: rem(24);
+
+    @include mq('md') {
+      min-height: rem(720);
+    }
+
+    @include mq('lg') {
+      min-height: rem(340);
+    }
+  }
+}
+
+.journal-card {
+  display: flex;
+  align-items: flex-start;
+  gap: rem(16);
+  width: 100%;
+  min-height: rem(147);
+  flex-shrink: 0;
+
+  @include mq('md') {
+    gap: rem(20);
+  }
+
+  @include mq('lg') {
+    width: calc((100% - #{rem(40)}) / 2);
+  }
+
+  &__thumb {
+    flex: 0 0 rem(96);
+    width: rem(96);
+    height: rem(96);
+    overflow: hidden;
+    background-color: var(--color-bg-light);
+
+    @include mq('md') {
+      flex-basis: rem(150);
+      width: rem(150);
+      height: rem(150);
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: rem(8);
+    min-width: 0;
+  }
+
+  &__meta {
+    font-family: var(--font-oswald);
+    font-size: rem(12);
+    line-height: rem(18);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+
+  &__title {
+    font-family: var(--font-oswald);
+    font-weight: 400;
+    font-size: rem(15);
+    line-height: rem(21);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--color-text-dark);
+
+    @include mq('md') {
+      font-size: rem(17);
+      line-height: rem(23);
+    }
+  }
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    align-self: flex-start;
+    gap: rem(6);
+    font-family: var(--font-oswald);
+    font-size: rem(12);
+    line-height: rem(18);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--color-accent);
+  }
+}

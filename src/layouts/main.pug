@@ -1,37 +1,24 @@
-//- Підключаємо всі міксини глобально для всього проєкту
-include ../mixins/btn.pug
-include ../mixins/icon.pug
-include ../mixins/picture.pug
-include ../mixins/work-card.pug
+include ../mixins/index
 
 doctype html
-html(lang='uk')
+html(lang='en')
   head
-    meta(charset='UTF-8')
-    meta(name='viewport', content='width=device-width, initial-scale=1.0')
-
-    //- Блок для мета-тегів, який можна розширювати через append
     block meta
-      title Keepsake — Лендинг
-      meta(name='description', content='Професійний лендинг Keepsake')
-
-    //- Підключення стилів
+      meta(charset='UTF-8')
+      meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    block title
+      title Keepsake | Digital &amp; Branding Agency
     block styles
+      link(rel='preconnect', href='https://fonts.googleapis.com')
+      link(rel='preconnect', href='https://fonts.gstatic.com', crossorigin)
+      link(
+        href='https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Open+Sans:wght@300;400;700&family=Oswald:wght@300;400;700&display=swap',
+        rel='stylesheet'
+      )
       link(rel='stylesheet', href='/src/styles/main.scss')
+  body#top
+    include ../includes/sprite.svg
 
-  body
-    //- Шапка сайту
-    block header
-      include ../components/header.pug
+    block content
 
-    //- Основний вміст сторінки
-    main
-      block content
-
-    //- Футер сайту
-    block footer
-      include ../components/footer.pug
-
-    //- Блок для скриптів
     block scripts
-      script(type='module', src='/src/pages/index.js')

@@ -1,14 +1,17 @@
-﻿mixin work-card(work, index = 0)
-  article.work-card(data-category=work.category, tabindex='0')&attributes(attributes)
+mixin work-card(work, isFirst = false)
+  article.work-card(data-category=work.category, tabindex='0')
     +picture(
       work.image,
       work.alt,
+      357,
+      282,
+      '(min-width: 1280px) 357px, (min-width: 768px) 50vw, 100vw',
       'work-card__img',
-      work.width || 800,
-      work.height || 632,
-      index > 0,
+      isFirst,
     )
-    .work-card__content
-      h3.work-card__title= work.title
-      unless !work.category
-        span.work-card__category= work.category
+    .work-card__overlay
+      span.work-card__plus(aria-hidden='true')
+        +icon('plus')
+      h3.work-card__title #{ work.title }
+      .work-card__divider
+      span.work-card__cat #{ work.categoryLabel }
