@@ -1,5 +1,5 @@
-mixin work-card(work, index = 0)
-  article.work-card
+﻿mixin work-card(work, index = 0)
+  article.work-card(data-category=work.category, tabindex='0')&attributes(attributes)
     +picture(
       work.image,
       work.alt,

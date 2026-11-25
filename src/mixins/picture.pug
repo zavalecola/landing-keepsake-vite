@@ -1,5 +1,5 @@
-mixin picture(name, alt, className = '', width = 800, height = 632, isLazy = true, sizes = '(min-width: 1280px) 357px, (min-width: 768px) 50vw, 100vw', isHero = false)
-  - const basePath = '/landing-keepsake-vite/assets/images'
+﻿mixin picture(name, alt, className = '', width = 800, height = 632, isLazy = true, sizes = '(min-width: 1280px) 357px, (min-width: 768px) 50vw, 100vw', isHero = false)
+  - const basePath = 'assets/images'
   picture
     source(
       type='image/avif',
@@ -15,6 +15,8 @@ mixin picture(name, alt, className = '', width = 800, height = 632, isLazy = tru
       img(
         class=className,
         src=`${basePath}/${name}-800.jpg`,
+        srcset=`${basePath}/${name}-400.jpg 400w, ${basePath}/${name}-800.jpg 800w`,
+        sizes=sizes,
         alt=alt,
         width=width,
         height=height,
@@ -25,6 +27,8 @@ mixin picture(name, alt, className = '', width = 800, height = 632, isLazy = tru
       img(
         class=className,
         src=`${basePath}/${name}-800.jpg`,
+        srcset=`${basePath}/${name}-400.jpg 400w, ${basePath}/${name}-800.jpg 800w`,
+        sizes=sizes,
         alt=alt,
         width=width,
         height=height,

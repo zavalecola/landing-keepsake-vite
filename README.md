@@ -2,7 +2,7 @@
 
 Адаптивний лендинг Keepsake, зібраний на базі **Vite**, **Vituum**, **Pug** та **SCSS** із налаштованими **PostCSS / Autoprefixer**, **Prettier**, **Stylelint**, **Husky + lint-staged** та автоматичною публікацією на **GitHub Pages** через **GitHub Actions**.
 
-- **Демо (GitHub Pages):** https://zavalecola.github.io/landing-keepsake-vite/
+- **Демо (GitHub Pages):** [https://zavalecola.github.io/landing-keepsake-vite/](https://zavalecola.github.io/landing-keepsake-vite/)
 
 ---
 
